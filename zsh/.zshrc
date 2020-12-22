@@ -27,7 +27,7 @@ setopt hist_save_no_dups      # do not write a duplicate command to history
 setopt hist_verify            # do not execute imediately upon history expansion
 
 # Aliases
-alias ls="ls -Gh"    # human readable format
+alias ls="ls -Gh"   # human readable format
 # if [[ ${uname} != "Darwin" ]] then
 #   alias ls="ls --color=auto"
 # fi
@@ -35,7 +35,13 @@ alias la="ls -la"   # show dotfiles
 alias rm="rm -i"    # prompt before deleting
 
 
+# Prompt
 export PS1='%n@%m:%F{2}%~%f %F{5}%#%f '
+
+# Completion
+autoload -U compinit; compinit
+_comp_options+=(globdots)       # hidden files
+source $DOTFILES/zsh/plugins/completion.zsh
 
 # Nix package manager
 # . $HOME/.nix-profile/etc/profile.d/nix.sh

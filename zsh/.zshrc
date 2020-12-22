@@ -19,9 +19,9 @@ HISTSIZE=1000                 # how many lines to keep in memory
 SAVEHIST=1000                 # number of enteries to save
 setopt extended_history       # record timestamp of commands
 setopt share_history          # share history between sessions
-setopt hist_expire_dups_first # delete duplicate commands first when trimming history
+setopt hist_expire_dups_first # delete duplicate commands when trimming history
 setopt hist_ignore_dups       # ignore duplicated commands
-setopt hist_ignore_all_dups   # delete an old recorded event if new event is duplicate
+setopt hist_ignore_all_dups   # delete an old recorded event if duplicate
 setopt hist_ignore_space      # ignore commands that start with space
 setopt hist_save_no_dups      # do not write a duplicate command to history
 setopt hist_verify            # do not execute imediately upon history expansion
@@ -39,8 +39,12 @@ alias rm="rm -i"    # prompt before deleting
 export PS1='%n@%m:%F{2}%~%f %F{5}%#%f '
 
 # Completion
+
+# Automatic loading via #compdef in each file (see https://git.io/Jk8zj)
+fpath=($DOTFILES/zsh/plugins/zsh-completions/src $fpath)
+
 autoload -U compinit; compinit
-_comp_options+=(globdots)       # hidden files
+_comp_options+=(globdots) # hidden files
 source $DOTFILES/zsh/plugins/completion.zsh
 
 # Nix package manager

@@ -41,11 +41,11 @@ export PS1='%n@%m:%F{2}%~%f %F{5}%#%f '
 # Completion
 
 # Automatic loading via #compdef in each file (see https://git.io/Jk8zj)
-fpath=($DOTFILES/zsh/plugins/zsh-completions/src $fpath)
+fpath=($XDG_CONFIG_HOME/zsh/plugins/zsh-completions/src $fpath)
 
 autoload -U compinit; compinit
 _comp_options+=(globdots) # hidden files
-source $DOTFILES/zsh/plugins/completion.zsh
+source $XDG_CONFIG_HOME/zsh/plugins/completion.zsh
 
 # Nix package manager
 # . $HOME/.nix-profile/etc/profile.d/nix.sh

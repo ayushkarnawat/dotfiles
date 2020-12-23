@@ -28,12 +28,14 @@ setopt hist_verify            # do not execute imediately upon history expansion
 
 # Aliases
 alias ls="ls -Gh"   # human readable format
-# if [[ ${uname} != "Darwin" ]] then
-#   alias ls="ls --color=auto"
-# fi
+if [[ $(uname) != "Darwin" ]] then
+  alias ls="ls --color=auto"
+fi
 alias la="ls -la"   # show dotfiles
 alias rm="rm -i"    # prompt before deleting
 
+alias d="dirs -v"   # quickly move between last 10 dirs
+for index ({1..9}) alias "$index"="cd + ${index}"; unset index
 
 # Prompt
 export PS1='%n@%m:%F{2}%~%f %F{5}%#%f '

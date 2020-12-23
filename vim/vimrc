@@ -1,7 +1,11 @@
 set encoding=utf-8
 
+" New runtimepaths (https://vi.stackexchange.com/a/20067)
+set runtimepath+=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after
+set viminfo+=n$XDG_CONFIG_HOME/vim/viminfo
+
 " Leader
-let mapleader = " "
+let mapleader=" "
 
 set backspace=2   " Backspace deletes like most programs in insert mode
 set history=50
@@ -64,7 +68,6 @@ set expandtab
 "set tabstop=4
 "set softtabstop=4
 "set shiftwidth=4
-"set expandtab
 "set nocompatible
 
 " Display extra whitespace
@@ -155,4 +158,3 @@ set complete+=kspell
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
 endif
-

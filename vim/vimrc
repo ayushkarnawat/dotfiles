@@ -1,8 +1,12 @@
 set encoding=utf-8
 
-" New runtimepaths (https://vi.stackexchange.com/a/20067)
+" Move configs + generated files to central location; the '//' instructs vim to
+" store directory path in the filename. See https://vi.stackexchange.com/a/20067)
 set runtimepath+=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after
 set viminfo+=n$XDG_CONFIG_HOME/vim/viminfo
+set directory=$XDG_CONFIG_HOME/vim/swap//,.,~/tmp,/var/tmp,/tmp
+set backupdir=$XDG_CONFIG_HOME/vim/backup//,.,~/tmp,~/
+set undodir=$XDG_CONFIG_HOME/vim/undo//,.
 
 " Leader
 let mapleader=" "
@@ -148,7 +152,7 @@ nnoremap [r :ALEPreviousWrap<CR>
 nnoremap <c-p> :Files<cr>
 
 " Set spellfile to location that is guaranteed to exist, can be symlinked to
-" Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
+" Dropbox or kept in Git and managed outside of dotfiles using rcm.
 set spellfile=$HOME/.vim-spell-en.utf-8.add
 
 " Autocomplete with dictionary words when spell check is on

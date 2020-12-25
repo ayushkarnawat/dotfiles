@@ -26,6 +26,7 @@ setopt hist_ignore_space      # ignore commands that start with space
 setopt hist_save_no_dups      # do not write a duplicate command to history
 setopt hist_verify            # do not execute imediately upon history expansion
 
+
 # Aliases
 alias ls="ls -Gh"   # human readable format
 if [[ $(uname) != "Darwin" ]] then
@@ -34,11 +35,17 @@ fi
 alias la="ls -la"   # show dotfiles
 alias rm="rm -i"    # prompt before deleting
 
-alias d="dirs -v"   # quickly move between last 10 dirs
+# Quickly move between last k=10 dirs
+alias d="dirs -v"
 for index ({1..9}) alias "$index"="cd + ${index}"; unset index
+
+# Load screen config file from non-default locatiion
+alias screen="screen -c $XDG_CONFIG_HOME/screen/screenrc"
+
 
 # Prompt
 export PS1='%n@%m:%F{2}%~%f %F{5}%#%f '
+
 
 # Completion
 # Automatic loading via #compdef in each file (see https://git.io/Jk8zj)
@@ -47,6 +54,7 @@ fpath=($ZDOTDIR/plugins/zsh-completions/src $fpath)
 autoload -U compinit; compinit
 _comp_options+=(globdots) # hidden files
 source $ZDOTDIR/plugins/completion.zsh
+
 
 # Vim
 export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"

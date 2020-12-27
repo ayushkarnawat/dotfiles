@@ -9,8 +9,12 @@ export XDG_DATA_HOME="$XDG_CONFIG_HOME/local/share"
 export EDITOR="vim"
 export VISUAL="vim"
 
-# Zsh
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+# ZSH; if ~/.zshenv is symlinked to $ZDOTDIR/.zshenv
+export ZDOTDIR="${${(%):-%x}:P:h}"
+# ${            :h}   Remove trailing pathname component (man zshexpn)
+# ${          :P  }   Get realpath (man zshexpn)
+#   ${(%):-  }        Enable prompt expansion (man zshexpn zshmisc)
+#   ${     %x}        Name of file containing this line (man zshmisc)
 
 # Paths
 export PATH="/Library/TeX/texbin:$PATH"

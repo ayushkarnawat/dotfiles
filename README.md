@@ -1,8 +1,9 @@
 # Dotfiles
+A set of configuration files for developmental purposes. Particularly useful is
+setting up a new computer quickly.
 
-## Notes
-*Disclaimer*: If you want to give these configs a try, download/fork the
-repository, review the code, and modify things as you see fit. I don't recommend
-you use my settings unless your know what it entails. 
-
-These dotfiles have only been tested on MacOS. Other OS maybe not be compatible.
+## Disclaimer
+Since I've built these for my workflow, they may require some (major) tweaking
+if you want to use them. Please review the code and modify things as you see
+fit. These dotfiles have only been tested on MacOS; other OS maybe not work as
+intended.

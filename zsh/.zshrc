@@ -11,7 +11,6 @@ setopt correct            # spell check
 setopt cdable_vars        # change directory to path stored in a variable
 setopt extended_glob      # extended globbing syntax
 
-# autoload -Uz bd; bd
 
 # History
 HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history # where to save history
@@ -60,4 +59,4 @@ source $ZDOTDIR/plugins/completion.zsh
 export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
 
 # Nix package manager
-# . $HOME/.nix-profile/etc/profile.d/nix.sh
+. $HOME/.nix-profile/etc/profile.d/nix.sh

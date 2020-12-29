@@ -43,7 +43,7 @@ alias screen="screen -c $XDG_CONFIG_HOME/screen/screenrc"
 
 
 # Prompt
-export PS1='%n@%m:%F{2}%~%f %F{5}%#%f '
+export PROMPT='%n:%F{green}%~%f %F{magenta}%#%f '
 
 
 # Completion

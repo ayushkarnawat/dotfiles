@@ -17,8 +17,8 @@ endif
 
 " External plugins
 silent! if plug#begin($XDG_CONFIG_HOME . '/vim/plugged')
-Plug 'LnL7/vim-nix'     " nix syntax
-call plug#end()
+  Plug 'LnL7/vim-nix'     " nix syntax
+  call plug#end()
 endif
 
 " Leader
@@ -41,8 +41,8 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
 endif
 colorscheme delek
 
-if filereadable(expand("~/.vimrc.bundles"))
-  source ~/.vimrc.bundles
+if filereadable(expand($XDG_CONFIG_HOME . "/vim/vimrc.bundles"))
+  source $XDG_CONFIG_HOME/vim/vimrc.bundles
 endif
 
 " Load matchit.vim, but only if the user hasn't installed a newer version.
@@ -66,7 +66,8 @@ augroup vimrcEx
   " Set syntax highlighting for specific file types
   autocmd BufRead,BufNewFile *.md set filetype=markdown
   autocmd BufRead,BufNewFile .{jscs,jshint,eslint}rc set filetype=json
-  autocmd BufRead,BufNewFile aliases.local,zshrc.local,*/zsh/configs/* set filetype=sh
+  autocmd BufRead,BufNewFile aliases.local,zshrc.local,*/zsh/configs/*
+        \ set filetype=sh
   autocmd BufRead,BufNewFile gitconfig.local set filetype=gitconfig
   autocmd BufRead,BufNewFile tmux.conf.local set filetype=tmux
   autocmd BufRead,BufNewFile vimrc.local set filetype=vim
@@ -77,15 +78,11 @@ augroup END
 let g:is_posix = 1
 
 " Softtabs, 2 spaces
-set tabstop=2
-set shiftwidth=2
-set shiftround
+set autoindent
 set expandtab
-"set autoindent
-"set tabstop=4
-"set softtabstop=4
-"set shiftwidth=4
-"set nocompatible
+set shiftround
+set shiftwidth=2
+set tabstop=2
 
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
@@ -111,7 +108,7 @@ endif
 set textwidth=80
 set colorcolumn=+1
 highlight ColorColumn ctermbg=lightgrey
-autocmd Bufread,BufNewFile *.py set colorcolumn=73,+1
+autocmd BufEnter *.py set colorcolumn=73,+1
 
 " Numbers
 set number
@@ -166,12 +163,12 @@ nnoremap <c-p> :Files<cr>
 
 " Set spellfile to location that is guaranteed to exist, can be symlinked to
 " Dropbox or kept in Git and managed outside of dotfiles using rcm.
-set spellfile=$HOME/.vim-spell-en.utf-8.add
+set spellfile=$XDG_CONFIG_HOME/vim/vim-spell-en.utf-8.add
 
 " Autocomplete with dictionary words when spell check is on
 set complete+=kspell
 
 " Local config
-if filereadable($HOME . "/.vimrc.local")
-  source ~/.vimrc.local
+if filereadable($XDG_CONFIG_HOME . "/vim/vimrc.local")
+  source $XDG_CONFIG_HOME/vim/vimrc.local
 endif

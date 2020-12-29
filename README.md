@@ -22,6 +22,6 @@ Since we are not using homebrew, we have to compile Tmux manually.
 
 ## Disclaimer
 Since I've built these configs for my workflow, they may require some
-(minor) tweaks if you want to use them yourself. Please review the code and
-modify things as you see fit. These dotfiles have only been tested on MacOS;
-other OS may not work.
+(minor) tweaks if you want to use them for yours. Please review the code and
+modify things as you see fit. Note these dotfiles have only been tested on
+MacOS; other OS will probably not work.

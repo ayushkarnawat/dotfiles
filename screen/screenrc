@@ -1,35 +1,23 @@
-# GNU Screen - main config file
+# GNU Screen - Main config file
 
-# Allow bold colors - necessary for some reason
-attrcolor b ".I"
+startup_message off             # turn off annoying license msg
+shell -${SHELL}                 # open new window with default shell
+altscreen on                    # use alt screen when editing files
+windowlist string "%4n %h%-%f"  # how to display window info during selection
 
-# Tell screen how to set colors. AB = background, AF=foreground
-termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+attrcolor b ".I"      # allow bold colors
+defbce "on"           # erase bg with current bg color
+term xterm-256color   # enable 256 colors
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm' # AB=bg, AF=fg
+termcapinfo xterm|xterms|cs|rxvt ti@:te@ # enables use of shift-PgUp/PgDn
 
-# Enables use of shift-PgUp and shift-PgDn
-termcapinfo xterm|xterms|xs|rxvt ti@:te@
-
-# Erase background with current bg color
-defbce "on"
-
-# Enable 256 color term
-term xterm-256color
-
-# Cache 30000 lines for scroll back
-defscrollback 30000
-
-# Very nice tabbed colored hardstatus line
+# Display important info on list line
 hardstatus alwayslastline
 hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d/%m %{W}%c %{g}]'
+bind f eval "hardstatus ignore"         # hide hardstatus: ctrl-a f
+bind F eval "hardstatus alwayslastline" # show hardstatus: ctrl-a F
 
-# Hide hardstatus: ctrl-a f 
-bind f eval "hardstatus ignore"
-# Show hardstatus: ctrl-a F
-bind F eval "hardstatus alwayslastline"
-
-startup_message off
-altscreen on
-windowlist string "%4n %h%=%f"
-shell -${SHELL}
-pow_detach_msg "Screen session for \${LOGNAME} \$:cr:\$:nl:ended"
+# Misc
+defscrollback 3000    # cache lines for scroll back
 logfile "$XDG_CACHE_HOME/screen/log.%n.%Y-%m-%d"
+pow_detach_msg "Screen session for ${LOGNAME} \$:cr:\$:n1:ended"

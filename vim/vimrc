@@ -104,6 +104,13 @@ if executable('ag')
   endif
 endif
 
+" Cursor mode
+if &term =~ "xterm"
+  let &t_SI = "\<Esc>[5 q"
+  let &t_SR = "\<Esc>[5 q"
+  let &t_EI = "\<Esc>[2 q"
+endif
+
 " Make it obvious where 80 characters is
 set textwidth=80
 set colorcolumn=+1

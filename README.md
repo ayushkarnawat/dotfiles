@@ -12,7 +12,7 @@ Follow the instructions for installing the latest version
 Since we are not using homebrew, we have to compile Tmux manually.
 
 ## TODO
-- [ ] Change cursor when editing files using vim. In normal mode, the cursor 
+- [x] Change cursor when editing files using vim. In normal mode, the cursor 
       should be a block; in editing mode, a line.
 - [ ] Move nix dotfiles here
 - [ ] Tmux install and config

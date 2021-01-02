@@ -17,7 +17,8 @@ endif
 
 " External plugins
 silent! if plug#begin($XDG_CONFIG_HOME . '/vim/plugged')
-  Plug 'LnL7/vim-nix'     " nix syntax
+  Plug 'LnL7/vim-nix'             " nix syntax
+  Plug 'junegunn/vim-easy-align'  " alignment
   call plug#end()
 endif
 
@@ -171,6 +172,10 @@ nnoremap [r :ALEPreviousWrap<CR>
 
 " Map Ctrl + p to open fuzzy find (FZF)
 nnoremap <c-p> :Files<cr>
+
+" Easy align mappings - visual mode (i.e. vipga); motion/text mode (i.e. gaip)
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 " Set spellfile to location that is guaranteed to exist, can be symlinked to
 " Dropbox or kept in Git and managed outside of dotfiles using rcm.

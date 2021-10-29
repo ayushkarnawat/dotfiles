@@ -35,7 +35,7 @@ setopt hist_verify            # do not execute imediately upon history expansion
 # | Aliases |
 # +---------+
 alias ls="ls -Gh"   # human readable format
-if [[ $(uname) != "Darwin" ]] then
+if [[ $(uname) != "Darwin" || ${name} == "nix-shell" ]] then # using nix-shell
   alias ls="ls --color=auto"
 fi
 alias la="ls -la"   # show dotfiles
